@@ -17,7 +17,7 @@ const AddressSchema= new Schema ({
         type:String,
         defaut:""
     },
-     coutry:{
+     country:{
         type:String,
         defaut:""
     },

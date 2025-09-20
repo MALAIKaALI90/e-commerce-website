@@ -1,0 +1,138 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
+import summaryApi from "../common/summaryApi";
+import Axios from "../utils/axios";
+import{ Link, useNavigate} from 'react-router-dom'
+const Register = () => {
+  const navigate=useNavigate()
+  const [data, setData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmePass: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit =async (e) => {
+    e.preventDefault();
+    if (data.password !== data.confirmePass) {
+    toast.error("Password and confirmed password must be same")
+      return;
+    }
+  try {
+    
+      const res=await Axios({
+        ...summaryApi.register,
+        data
+        
+      })
+     
+      toast.success(res.data.message)
+      setData({
+        username:"",
+        email:"",
+        password:"",
+        confirmePass:""
+      })
+      navigate("/login")
+  } 
+catch (error) {
+  if (error.response && error.response.data && error.response.data.message) {
+    toast.error(error.response.data.message);
+  } else {
+    toast.error("Something went wrong");
+  }
+}
+  };
+  return (
+    <section className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="bg-white p-6 rounded-2xl shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center mb-4">Welcome to Blinkit</h2>
+        
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Username */}
+          <div>
+            <label className="block font-medium">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Write your username"
+              value={data.username}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-400"
+              required
+            />
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block font-medium">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Write your email"
+              value={data.email}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-400"
+              required
+            />
+          </div>
+
+          {/* Password */}
+          <div>
+            <label className="block font-medium">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Write your password"
+              value={data.password}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-400"
+              required
+            />
+          </div>
+
+          {/* Confirm Password */}
+          <div>
+            <label className="block font-medium">Confirm Password</label>
+            <input
+              type="password"
+              name="confirmePass"
+              placeholder="Confirm your password"
+              value={data.confirmePass}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-yellow-400"
+              required
+            />
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full bg-yellow-500 text-white font-semibold py-2 rounded-lg hover:bg-yellow-600 transition"
+          >
+            Register
+          </button>
+        </form>
+<p className="text-center text-gray-600 mt-4">
+  Already have an account?{" "}
+  <Link 
+    to="/login" 
+    className="text-yellow-600 font-semibold hover:underline hover:text-yellow-700 transition"
+  >
+    Login
+  </Link>
+</p>
+      </div>
+    </section>
+  );
+};
+
+export default Register;  
