@@ -15,10 +15,10 @@ const ConfirmBox = ({ close, cancel, confirm }) => {
 
        
         <p className="text-gray-900 text-lg font-semibold mb-2">
-          Delete  Sub Category
+         You Want to delete this
         </p>
         <p className="text-gray-600 mb-6 text-sm">
-          Are you sure you want to delete this Sub  category? This action cannot be undone.
+          Are you sure you want to delete this ? This action cannot be undone.
         </p>
 
         {/* Buttons */}

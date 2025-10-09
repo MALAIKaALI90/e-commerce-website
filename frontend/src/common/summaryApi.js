@@ -1,3 +1,5 @@
+
+
  export const baseUrl="http://localhost:8080"
  const summaryApi={
     register:{
@@ -78,9 +80,79 @@ method:"delete"
             get_product:{
                 url:"/api/product/get",
                 method:"post"
-            }
+            },
+            getProductByCatagory:{
+                url:"/api/product/get-product-by-catagory",
+                method:"post"
+            },
+            getProductByCatgaoryAndSubCatagory:{
+                url:"/api/product/get-product-by-catagory-and-subCatagory",
+                method:"post"
+            },
+            getOneProduct:{
+                url:"/api/product/get-productDetail",
+                method:"post"
+            },
+            UpdateProduct:{
+                url:"/api/product/update-product",
+                method:"put"
+            },
+            deletedProduct:{
+                url:"/api/product/delete-product",
+                method:"delete"
+            },
+            getSearchProduct:{
+                url:"/api/product/get-search-product",
+                method:"post"
+            },
+            addtocard:{
+                url:"/api/card/add",
+                method:"post"
+            },
+            getCardItem:{
+                url:"/api/card/get",
+                method:"get"
+            },
+            updateCardQuantity:{
+                url:"/api/card/update-quantity",
+                method:"put"
+            },
+            deleteItemfromCart:{
+                url:"/api/card/delete-item",
+                method:"delete"
+            },
+            createAddress:{
+                url:"/api/address/create",
+                method:"post"
+            },
+            getAllAddreses:{
+               
+                    url:"/api/address/get",
+                    method:"get"
+                
+            },
+            updateAddressDetaiil:{
+                url:"/api/address/update",
+                method:"put"
+            },
+            AddressDelete:{
+                url:"/api/address/delete",
+                method:"delete"
+            },
+
         
-        
+        CashOnDelvaryOrder:{
+            url:"/api/order/cash-on-delivery",
+            method:"post"
+        },
+        payment_url:{
+            url:"/api/order/checkout",
+            method:"post"
+        },
+        getOrdersItems:{
+            url:"/api/order/order-list",
+            method:"get"
+        }
 
     
 

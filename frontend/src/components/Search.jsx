@@ -6,6 +6,7 @@ import { TypeAnimation } from 'react-type-animation'
 const Search = () => {
   const navigate = useNavigate()
   const location = useLocation()
+const searchText=location.search.slice(3)
 
   const [isSearchPage, setIsSearchPage] = useState(false)
 
@@ -17,7 +18,14 @@ const Search = () => {
   const redirectToSearch = () => {
     navigate("/search")
   }
+const handleOnChange=(e)=>{
+  const value=e.target.value
+  const url=`/search?q=${value}`
+  navigate(url)
+  // console.log(value);
 
+}
+  
   return (
     <div className="flex flex-1 max-w-xl mx-6">
       <div className="relative w-full min-w-[300px] lg:min-w-[420px] h-12 rounded-full border flex items-center px-5 shadow-md bg-white">
@@ -73,6 +81,8 @@ const Search = () => {
               type="text"
               placeholder="Search for Atta Daal Milk and more"
               className="w-full outline-none text-gray-700"
+              defaultValue={searchText}
+              onChange={handleOnChange}
             />
           </div>
         )}

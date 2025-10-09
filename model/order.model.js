@@ -1,48 +1,48 @@
 import mongoose from "mongoose";
 import  Mongoose,{Schema } from "mongoose";
 const orderSchema= new Schema ({
-    userId:[{
-        type:mongoose.Schema.ObjectId,
-        ref:"User"
-    }],
-        orderId:[{
-        type:String,
-        require:true,
-        unique:true
-    }],
-
-    productId:[{
-           type:mongoose.Schema.ObjectId,
-        ref:"Product"
-    }],
-    productDetail:{
-        name:String,
-        image:Array
+ userId : {
+        type : mongoose.Schema.ObjectId,
+        ref : 'User'
     },
-    paymentId:{
-        type:String,
-        default:""
+    orderId : {
+        type : String,
+        required : [true, "Provide orderId"],
+        unique : true
     },
-    paymentStatus:{type:String,
-        default:""
-
+    productId : {
+        type : mongoose.Schema.ObjectId,
+        ref : "product"
     },
-    deliveryAddress:[{
-        type:mongoose.Schema.ObjectId,
-        ref:"Address"}],
-        subTotalAmt:{
-            type:Number,
-            default:0
-        },
-        totalAmt:{
-            type:Number,
-            default:0
-        },
-        invoiceReciept:{
-            type:String,
-            default:""
-        }
-
-
-},{timestamps:true})
+    product_details : {
+        name : String,
+        image : Array,
+    },
+    paymentId : {
+        type : String,
+        default : ""
+    },
+    payment_status : {
+        type : String,
+        default : ""
+    },
+    delivery_address : {
+        type : mongoose.Schema.ObjectId,
+        ref : 'address'
+    },
+    subTotalAmt : {
+        type : Number,
+        default : 0
+    },
+    totalAmt : {
+        type : Number,
+        default : 0
+    },
+    invoice_receipt : {
+        type : String,
+        default : ""
+    }
+},{
+    timestamps : true
+})
 export const Order=mongoose.model("Order",orderSchema)

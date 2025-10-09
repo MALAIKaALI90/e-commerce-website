@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import  Mongoose,{Schema } from "mongoose";
 const AddressSchema= new Schema ({
-    houseNum:{
+    addressline:{
         type:String,
         default:""
     },
@@ -9,11 +9,8 @@ const AddressSchema= new Schema ({
         type:String,
         defaut:""
     },
-     state:{
-        type:String,
-        defaut:""
-    },
-     pincode:{
+    
+     postalcode:{
         type:String,
         defaut:""
     },
@@ -21,10 +18,18 @@ const AddressSchema= new Schema ({
         type:String,
         defaut:""
     },
-     mobileNum:{
+     phone:{
         type:Number,
         defaut:null
     },
+    status:{
+        type:Boolean,
+        default:true
+    },
+    userId:{
+        type:mongoose.Schema.ObjectId,
+        default:""
+    }
 
 },{timestamps:true})
 export const Address=mongoose.model("Address",AddressSchema)

@@ -10,7 +10,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import IsAdmin from './isAdmin'
 const UserMenu = () => {
   const user = useSelector((state) => state?.user)
-  console.log(user);
+  // console.log(user);
   
   const dispatch=useDispatch()
 const handleLogout=async()=>{

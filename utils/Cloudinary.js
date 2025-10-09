@@ -15,4 +15,4 @@ const uploudImageCloudinary=async (image) => {
 
 
    
-export default uploudImageCloudinary
+export default uploudImageCloudinary;
