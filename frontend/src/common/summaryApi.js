@@ -1,6 +1,6 @@
 
 
- export const baseUrl=import.meta.env.VITE_BACKEND_URI
+ export const baseUrl=import.meta.env.VITE_API_URL
  const summaryApi={
     register:{
         url:'/api/user/register',
