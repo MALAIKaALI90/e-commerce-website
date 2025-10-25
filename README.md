@@ -1,4 +1,4 @@
-# 🛒 Blinkit Clone (MERN Stack)
+][# 🛒 Blinkit Clone (MERN Stack)
 
 A full-stack **Blinkit Clone** built using the **MERN (MongoDB, Express, React, Node.js)** stack.  
 This project replicates the Blinkit grocery delivery platform — featuring category-based shopping, cart management, Stripe & Cash on Delivery checkout, admin dashboard, and a secure authentication system.
@@ -114,9 +114,7 @@ npm run dev
 ---
 
 ## 🌐 Live Demo
-
-🔗 **Frontend:** https://e-commerce-website-qclu.vercel.app/
-🔗 **Backend:** https://e-commerce-website-toad.vercel.app/
+https://binkeyit-full-stack-ydrn.vercel.app/
 
 ---Below are some previews of the Blinkit Clone interface:
 
